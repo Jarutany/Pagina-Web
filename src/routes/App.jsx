@@ -7,7 +7,9 @@ export default function App() {
   return (
     <div>
       <Navbar />
-      <Outlet /> {/* This will render the matched child route */}
+      <div className='pt-32 sm:pt-24'>
+        <Outlet /> {/* This will render the matched child route */}
+      </div>
       <Footer />
     </div>
   );

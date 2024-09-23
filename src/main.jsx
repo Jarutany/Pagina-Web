@@ -8,7 +8,9 @@ import {
 
 import App from './routes/App';
 import './index.css';
+
 import Index from './routes/index/Index';
+import Productos from './routes/productos/Productos';
 
 const router = createBrowserRouter([
   {
@@ -16,7 +18,7 @@ const router = createBrowserRouter([
     element: <App />, // App includes Navbar and Footer
     children: [
       { path: "/", element: <Index /> },
-      { path: "/Productos", element: <div>Productos</div> },
+      { path: "/Productos", element: <Productos /> },
       { path: "/Nosotros", element: <div>Nosotros</div> },
       { path: "/Ganado", element: <div>Ganado</div> },
       { path: "/Contacto", element: <div>Contacto</div> }

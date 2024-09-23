@@ -17,9 +17,12 @@ export default {
       md: '768px',   // Medium devices (768px and up)
       lg: '1024px',  // Large devices (1024px and up)
       xl: '1280px',  // Extra large devices (1280px and up)
-      '2xl': '1536px', // 2x Extra large devices (1536px and up)
     },
-    extend: {},
+    extend: {
+      fontSize:{
+        base: '18px',
+      },
+    },
   },
   plugins: [],
 }
