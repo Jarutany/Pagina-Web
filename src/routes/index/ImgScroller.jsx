@@ -25,12 +25,12 @@ export default function ImgScroller(){
     <>
       <div className='h-52 bg-cover bg-center sm:h-96' style={{backgroundImage: `url(${images[currImg]})`}}>
         <div className='relative group hover:visible h-full flex justify-between sm:p-10 sm:items-center'>
-          <button className='bg-darkGrey/50 p-2 h-full sm:h-auto sm:rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-10'
+          <button className='bg-darkGrey/50 text-white p-2 h-full sm:h-auto sm:rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-10'
             onClick={() => setImages((currImg == 0) ? images.length - 1 : currImg - 1)}
           >
             {"<"}
           </button>
-          <button className='bg-darkGrey/50 p-2 h-full sm:h-auto sm:rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-10'
+          <button className='bg-darkGrey/50 text-white p-2 h-full sm:h-auto sm:rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-10'
             onClick={() => setImages((currImg == images.length - 1) ? 0 : currImg + 1)}
           >
             {">"}
