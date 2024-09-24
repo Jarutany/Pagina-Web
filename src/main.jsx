@@ -11,6 +11,9 @@ import './index.css';
 
 import Index from './routes/index/Index';
 import Nosotros from './routes/nosotros/Nosotros';
+import Productos from './routes/productos/Productos';
+import Ganado from './routes/ganado/Ganado'
+import Contacto from './routes/contacto/Contacto';
 
 const router = createBrowserRouter([
   {
@@ -18,10 +21,10 @@ const router = createBrowserRouter([
     element: <App />, // App includes Navbar and Footer
     children: [
       { path: "/", element: <Index /> },
-      { path: "/Productos", element: <div>Productos</div> },
+      { path: "/Productos", element: <Productos /> },
       { path: "/Nosotros", element: <Nosotros /> },
-      { path: "/Ganado", element: <div>Ganado</div> },
-      { path: "/Contacto", element: <div>Contacto</div> }
+      { path: "/Ganado", element: <Ganado /> },
+      { path: "/Contacto", element: <Contacto /> }
     ]
   }
 ]);
