@@ -1,3 +1,5 @@
+import { ScrollRestoration } from "react-router-dom";
+
 import img from '../../assets/800x800.png';
 
 import Producto from "./Producto"
@@ -10,6 +12,7 @@ export default function Productos(){
   return(
     <>
       <div className="p-10">
+        <ScrollRestoration />
         <h1 className='pb-10 text-4xl'>Nuestros Productos</h1>
         {productos.map((x) => <Producto prop={x} />)}
       </div>

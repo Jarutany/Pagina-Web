@@ -14,6 +14,7 @@ import Nosotros from './routes/nosotros/Nosotros';
 import Productos from './routes/productos/Productos';
 import Ganado from './routes/ganado/Ganado'
 import Contacto from './routes/contacto/Contacto';
+import AvisoPriv from './routes/avisoPriv/AvisoPriv';
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,8 @@ const router = createBrowserRouter([
       { path: "/Productos", element: <Productos /> },
       { path: "/Nosotros", element: <Nosotros /> },
       { path: "/Ganado", element: <Ganado /> },
-      { path: "/Contacto", element: <Contacto /> }
+      { path: "/Contacto", element: <Contacto /> },
+      { path: "/AvisoPriv", element: <AvisoPriv /> }
     ]
   }
 ]);

@@ -4,9 +4,9 @@ import Logo from '../../assets/Logo.png';
 
 export default function Navbar() {
   return (
-    <div className="fixed text-sm sm:text-lg top-0 left-0 w-full flex flex-wrap justify-center sm:flex-nowrap bg-gradient-to-r from-white via-lightGreen to-white lg:h-32 z-50">
+    <div className="fixed text-sm sm:text-lg top-0 left-0 w-full flex flex-wrap justify-center sm:flex-nowrap bg-gradient-to-r from-white via-lightGreen to-white sm:h-24 z-50">
       <NavLink to="/">
-        <img className="p-5 sm:pt-8 sm:pl-5 w-40 md:w-48 lg:w-52" src={Logo} alt="Logo" />
+        <img className="p-5 sm:pt-4 sm:pl-5 w-40 md:w-48 lg:w-52" src={Logo} alt="Logo" />
       </NavLink>
 
       <div className="flex flex-wrap p-2 sm:flex-nowrap items-center justify-between sm:px-20 w-full">
