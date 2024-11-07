@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ScrollRestoration } from "react-router-dom";
-import img from '../../assets/1920x600.png';
+import img from '../../assets/1920x600_3.png';
 
 export default function Contacto() {
   const [nombre, setNombre] = useState('');
@@ -101,7 +101,7 @@ export default function Contacto() {
               <a href="">Facebook</a>
             </div>
             <div>
-              <a href="">Instagram</a>
+              <a href="https://www.instagram.com/jarutany/">Instagram</a>
             </div>
           </div>
         </div>

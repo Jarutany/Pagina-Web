@@ -16,6 +16,7 @@ export default function Footer(){
           <p className='mt-2 sm:mt-4'>52-346-113-2727</p>
           <p>ventas@jarutanystrade.com</p>
           <a href="">Facebook</a>
+          <a href="https://www.instagram.com/jarutany/">Instagram</a>
         </div>
 
         <div className=' p-2 flex flex-col'>

@@ -38,6 +38,15 @@ export default function Navbar() {
         </NavLink>
 
         <NavLink
+          to="/Raizes"
+          className={({ isActive }) => 
+            isActive ? 'text-black underline' : 'text-black hover:underline'
+          }
+        >
+          Bienes Raizes
+        </NavLink>
+
+        <NavLink
           to="/Nosotros"
           className={({ isActive }) => 
             isActive ? 'text-black underline' : 'text-black hover:underline'

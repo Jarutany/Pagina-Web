@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import img1 from '../../assets/1920x600.png'
-import img2 from '../../assets/1200x400_2.png'
+import img2 from '../../assets/1920x600_2.png'
 
 
 export default function ImgScroller(){

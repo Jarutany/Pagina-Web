@@ -1,7 +1,8 @@
 import { ScrollRestoration } from "react-router-dom";
 
 import ImgScroller from "./ImgScroller"
-import img from '../../assets/800x800.png'
+import img from '../../assets/4.png'
+import img2 from '../../assets/13.png'
 import Divider from '@mui/material/Divider';
 
 
@@ -62,7 +63,7 @@ export default function Productos() {
             </div>
             <div className="flex flex-wrap justify-between sm:flex-nowrap">
               <img
-                src={img}
+                src={img2}
                 alt="Imagen del Rancho"
                 className="h-full bg-lightGreen sm:w-1/3"
               />
