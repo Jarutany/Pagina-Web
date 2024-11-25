@@ -2,6 +2,8 @@ import { useState } from "react";
 import { ScrollRestoration } from "react-router-dom";
 import img from '../../assets/1920x600_3.png';
 
+
+
 export default function Contacto() {
   const [nombre, setNombre] = useState('');
   const [correo, setCorreo] = useState('');
@@ -24,9 +26,33 @@ export default function Contacto() {
     setMotivo(e.target.value);
   };
 
-  const handleSubmit = () => {
-    console.log({ nombre, correo, telefono, motivo });
+  const handleSubmit = async () => {
+    const formData = { nombre, correo, telefono, motivo };
+  
+    try {
+      const response = await fetch('http://localhost:5000/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      if (response.ok) {
+        alert('Email enviado correctamente.');
+        setNombre('');
+        setCorreo('');
+        setTelefono('');
+        setMotivo('');
+      } else {
+        alert('Error al enviar el email.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Error al enviar el email.');
+    }
   };
+  
 
   return (
     <>
@@ -78,7 +104,7 @@ export default function Contacto() {
               className="h-32 p-2 text-start rounded-lg bg-white border-2 border-grey resize-none"
             />
 
-            <button onClick={handleSubmit} className="mt-4 p-2 bg-grey rounded-lg">
+            <button onClick={handleSubmit} className="mt-4 p-2 bg-grey hover:bg-darkGrey/50 active:bg-darkGrey/30 rounded-lg">
               Enviar
             </button>
           </div>

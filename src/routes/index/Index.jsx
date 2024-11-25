@@ -16,18 +16,13 @@ export default function Index(){
         <ImgScroller />
         
         <div className="p-10 text-black text-justify">
-          <h1 className="font-normal text-2xl sm:ml-5">Conócenos</h1>
+          <h1 className="font-normal text-4xl sm:ml-5">Conócenos</h1>
           <div className="mt-5 flex flex-wrap justify-center h-fit sm:flex-nowrap sm:justify-between">
-            <p className="leading-loose text-lg sm:w-2/3 sm:mr-5 sm:m-5">
+            <p className="leading-loose text-3xl sm:w-2/3 sm:mr-5 sm:m-5">
               Jarutany's Trade significa ayuda al comercio, considerando al comercio desde la perspectiva del
               que por un lado ofrece, y por otro quien paga por un bien o servicio, buscando aportar
               transacciones que consideren el ganar-ganar como una prioridad, asegurando valor de uso y valor
-              de cambio en cada operación. <br/><br/>
-              Jarutany's Trade nace en el año 2000, derivado de la necesidad de ofrecer servicios de
-              comercialización, asesoría y desarrollo en el ámbito rural y urbano, así como en los mercados
-              globales, participando desde la producción primaria, la agroindustria, el comercio y prestación de
-              servicios, innovando y generando oportunidades de desarrollo holístico a quienes participan en los
-              diferentes procesos.
+              de cambio en cada operación.
             </p>
             <div className="sm:w-1/3 items-center justify-center flex">
               <img className="sm:w-2/3" src={img4} alt="" />
