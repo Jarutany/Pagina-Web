@@ -9,7 +9,7 @@ export default function Navbar() {
         <img className="p-5 sm:pt-4 sm:pl-5 w-40 md:w-48 lg:w-52" src={Logo} alt="Logo" />
       </NavLink>
 
-      <div className="flex flex-wrap p-2 sm:flex-nowrap items-center justify-between sm:px-20 w-full">
+      <div className="flex flex-wrap p-2 items-center gap-5 justify-center sm:flex-nowrap sm:justify-between sm:px-20 w-full">
         <NavLink
           to="/"
           className={({ isActive }) => 

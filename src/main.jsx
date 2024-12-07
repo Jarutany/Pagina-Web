@@ -16,6 +16,7 @@ import Ganado from './routes/ganado/Ganado'
 import Raizes from './routes/raizes/Raizes';
 import Contacto from './routes/contacto/Contacto';
 import AvisoPriv from './routes/avisoPriv/AvisoPriv';
+import Terminos from './routes/terminos/Terminos';
 
 const router = createBrowserRouter([
   {
@@ -28,7 +29,8 @@ const router = createBrowserRouter([
       { path: "/Ganado", element: <Ganado /> },
       { path: "/Raizes", element: <Raizes /> },
       { path: "/Contacto", element: <Contacto /> },
-      { path: "/AvisoPriv", element: <AvisoPriv /> }
+      { path: "/AvisoPriv", element: <AvisoPriv /> },
+      {path: "/Terminos", element: <Terminos />}
     ]
   }
 ]);

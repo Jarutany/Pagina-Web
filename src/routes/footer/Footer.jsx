@@ -22,7 +22,7 @@ export default function Footer(){
         <div className=' p-2 flex flex-col'>
           <h1 className='font-normal'>Centro de Ayuda</h1>
           <Link to="AvisoPriv" className='mt-2 sm:mt-4'>Aviso de Privacidad</Link>
-          <a href="">Termios y Condiciones</a>
+          <Link to="Terminos" className='mt-2 sm:mt-4'>Termios y Condiciones</Link>
         </div>
 
         <div className=' p-2 flex flex-col'>
