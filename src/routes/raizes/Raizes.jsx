@@ -11,7 +11,7 @@ export default function Raizes() {
     <>
       <ScrollRestoration />
       <div className="sm:h-min-screen">
-        <h1 className="text-4xl p-5">Bienes Raizes</h1>
+        <h1 className="text-4xl p-5">Bienes Raices</h1>
         <div className="flex flex-col items-center justify-center p-10 text-2xl text-justify">
           <p className="mb-10">
             Jarutany's Trade realiza desarrollos y obras y proyectos en diferentes lugares, asi como ofrecemos obras de infraestructura para instalaciones rurales, tales como cabañas, caballerizas, depósitos de agua, albercas para equinos y baños garrapaticidas. Ponte en contacto con nuestro equipo mencionando el área de interés y con gusto te ofreceremos soluciones a tus necesidades.

@@ -43,7 +43,7 @@ export default function Navbar() {
             isActive ? 'text-black underline' : 'text-black hover:underline'
           }
         >
-          Bienes Raizes
+          Bienes Raices
         </NavLink>
 
         <NavLink

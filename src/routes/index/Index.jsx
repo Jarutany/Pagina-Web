@@ -44,7 +44,7 @@ export default function Index(){
             </div>
             <div className="w-full m-2 sm:m-10 flex flex-wrap justify-center">
               <img src={img2} alt="" />
-              <Link to="/Raizes" className="p-3 text-3xl">Bienes Raizes</Link>
+              <Link to="/Raizes" className="p-3 text-3xl">Bienes Raices</Link>
             </div>
           </div>
         </div>
