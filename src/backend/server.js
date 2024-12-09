@@ -2,30 +2,36 @@ import express from 'express';
 import nodemailer from 'nodemailer';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import dotenv from 'dotenv';
+import morgan from 'morgan';
+
+// Load environment variables
+dotenv.config();
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:5173', 'http://jarutanystrade.com.mx'], // Adjusted for both environments
+}));
 app.use(bodyParser.json());
+app.use(morgan('combined'));
 
 // Email endpoint
 app.post('/send-email', async (req, res) => {
   const { nombre, correo, telefono, motivo } = req.body;
 
-  // Configure the transporter
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com', // Gmail's SMTP server
     port: 465, // Secure SMTP (SSL)
     secure: true, // Use SSL
     auth: {
-      user: 'ventas@jarutanystrade.com',
-      pass: 'hrqv wpns oohx waxq',
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
     },
   });
 
-  // Configure the email
   const mailOptions = {
     from: correo,
     to: 'ventas@jarutanystrade.com',
@@ -43,10 +49,22 @@ app.post('/send-email', async (req, res) => {
     res.status(200).send('Email sent successfully');
   } catch (error) {
     console.error('Error sending email:', error);
-    res.status(500).send('Failed to send email');
+    res.status(500).send({ error: 'Failed to send email. Please try again later.' });
   }
 });
 
+// Catch-all for invalid routes
+app.use((req, res) => {
+  res.status(404).send({ error: 'Route not found' });
+});
+
+// Error-handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send({ error: 'Internal Server Error' });
+});
+
+// Start server
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
