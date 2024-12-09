@@ -13,7 +13,9 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://jarutanystrade.com.mx'], // Adjusted for both environments
+  origin: ['http://localhost:5173', 'http://jarutanystrade.com.mx'], // Allow both local and production domains
+  methods: ['GET', 'POST'],  // Allow both GET and POST methods
+  allowedHeaders: ['Content-Type', 'Authorization'],  // Allow specific headers
 }));
 app.use(bodyParser.json());
 app.use(morgan('combined'));
