@@ -5,10 +5,10 @@ import Footer from '/src/routes/footer/Footer.jsx';
 
 export default function App() {
   return (
-    <div>
+    <div className="relative min-h-screen">
       <Navbar />
-      <div className='pt-32 sm:pt-24'>
-        <Outlet /> {/* This will render the matched child route */}
+      <div className="mt-40 sm:mt-24">
+        <Outlet />
       </div>
       <Footer />
     </div>

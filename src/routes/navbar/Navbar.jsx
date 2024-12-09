@@ -4,65 +4,72 @@ import Logo from '../../assets/Logo.png';
 
 export default function Navbar() {
   return (
-    <div className="fixed text-sm sm:text-lg top-0 left-0 w-full flex flex-wrap justify-center sm:flex-nowrap bg-gradient-to-r from-white via-lightGreen to-white sm:h-24 z-50">
-      <NavLink to="/">
-        <img className="p-5 sm:pt-4 sm:pl-5 w-40 md:w-48 lg:w-52" src={Logo} alt="Logo" />
-      </NavLink>
-
-      <div className="flex flex-wrap p-2 items-center gap-5 justify-center sm:flex-nowrap sm:justify-between sm:px-20 w-full">
+    <div className="fixed top-0 left-0 w-full bg-gradient-to-r from-white via-lightGreen to-white z-50">
+      <div className="flex sm:flex-row flex-col sm:h-24 h-40 sm:justify-between justify-center sm:px-20 px-5 w-full items-center">
+        {/* First Row: Logo */}
         <NavLink
           to="/"
-          className={({ isActive }) => 
-            isActive ? 'text-black underline' : 'text-black hover:underline'
-          }
+          className="sm:p-5 p-2 flex justify-center w-full sm:w-auto mt-4 mb-2"
         >
-          Inicio
+          <img className="w-40 sm:w-48 lg:w-52" src={Logo} alt="Logo" />
         </NavLink>
 
-        <NavLink
-          to="/Productos"
-          className={({ isActive }) => 
-            isActive ? 'text-black underline' : 'text-black hover:underline'
-          }
-        >
-          Productos
-        </NavLink>
+        {/* Second Row: Navigation Links */}
+        <div className="flex sm:flex-row flex-wrap sm:gap-5 gap-2 items-center sm:w-auto w-full justify-center mt-2 mb-4">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? 'text-black underline' : 'text-black hover:underline'
+            }
+          >
+            Inicio
+          </NavLink>
 
-        <NavLink
-          to="/Ganado"
-          className={({ isActive }) => 
-            isActive ? 'text-black underline' : 'text-black hover:underline'
-          }
-        >
-          Ganado
-        </NavLink>
+          <NavLink
+            to="/Productos"
+            className={({ isActive }) =>
+              isActive ? 'text-black underline' : 'text-black hover:underline'
+            }
+          >
+            Productos
+          </NavLink>
 
-        <NavLink
-          to="/Raizes"
-          className={({ isActive }) => 
-            isActive ? 'text-black underline' : 'text-black hover:underline'
-          }
-        >
-          Bienes Raices
-        </NavLink>
+          <NavLink
+            to="/Ganado"
+            className={({ isActive }) =>
+              isActive ? 'text-black underline' : 'text-black hover:underline'
+            }
+          >
+            Ganado
+          </NavLink>
 
-        <NavLink
-          to="/Nosotros"
-          className={({ isActive }) => 
-            isActive ? 'text-black underline' : 'text-black hover:underline'
-          }
-        >
-          Nosotros
-        </NavLink>
+          <NavLink
+            to="/Raizes"
+            className={({ isActive }) =>
+              isActive ? 'text-black underline' : 'text-black hover:underline'
+            }
+          >
+            Bienes Raices
+          </NavLink>
 
-        <NavLink
-          to="/Contacto"
-          className={({ isActive }) => 
-            isActive ? 'text-black underline' : 'text-black hover:underline'
-          }
-        >
-          Contacto
-        </NavLink>
+          <NavLink
+            to="/Nosotros"
+            className={({ isActive }) =>
+              isActive ? 'text-black underline' : 'text-black hover:underline'
+            }
+          >
+            Nosotros
+          </NavLink>
+
+          <NavLink
+            to="/Contacto"
+            className={({ isActive }) =>
+              isActive ? 'text-black underline' : 'text-black hover:underline'
+            }
+          >
+            Contacto
+          </NavLink>
+        </div>
       </div>
     </div>
   );

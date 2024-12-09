@@ -58,7 +58,7 @@ export default function Contacto() {
     <>
       <div className="w-screen">
         <ScrollRestoration />
-        <img src={img} alt="imagen" className="w-full h-32 sm:h-96" />
+        <img src={img} alt="imagen" className="relative w-full h-full" />
         <div className="p-10">
           <h1 className="text-2xl pb-5 sm:text-4xl">Nosotros te contactamos</h1>
           <p className="sm:text-2xl">
