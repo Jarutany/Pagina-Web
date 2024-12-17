@@ -2,13 +2,12 @@ import { useState } from "react";
 import { ScrollRestoration } from "react-router-dom";
 import img from '../../assets/1920x600_3.png';
 
-
-
 export default function Contacto() {
   const [nombre, setNombre] = useState('');
   const [correo, setCorreo] = useState('');
   const [telefono, setTelefono] = useState('');
   const [motivo, setMotivo] = useState('');
+  const [isLoading, setIsLoading] = useState(false); // Track loading state
 
   const handleNombreChange = (e) => {
     setNombre(e.target.value);
@@ -28,34 +27,47 @@ export default function Contacto() {
 
   const handleSubmit = async () => {
     const formData = { nombre, correo, telefono, motivo };
-  
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+    setIsLoading(true); // Lock the button
+
     try {
-      const response = await fetch('http://72.167.43.171:5000/send-email', { // Update this URL
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
+      const response = await fetch('http://72.167.43.171:5000/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+        signal: controller.signal,
       });
 
+      clearTimeout(timeoutId);
+
       if (response.ok) {
-          alert('Email enviado correctamente.');
-          setNombre('');
-          setCorreo('');
-          setTelefono('');
-          setMotivo('');
+        alert('Email enviado correctamente.');
+        setNombre('');
+        setCorreo('');
+        setTelefono('');
+        setMotivo('');
       } else {
-          const errorText = await response.text();
-          console.error('Server Error:', errorText);
-          alert('Error al enviar el email.');
+        const errorText = await response.text();
+        console.error('Server Error:', errorText);
+        alert('Error al enviar el email.');
       }
     } catch (error) {
-      console.error('Error:', error);
-      alert('Error al enviar el email.');
+      clearTimeout(timeoutId);
+      if (error.name === 'AbortError') {
+        console.error('Error: Timeout');
+        alert('Error: El servidor tardó demasiado en responder. Intenta de nuevo.');
+      } else {
+        console.error('Error:', error);
+        alert('Error al enviar el email.');
+      }
+    } finally {
+      setIsLoading(false); // Unlock the button
     }
   };
-
-  
 
   return (
     <>
@@ -65,9 +77,8 @@ export default function Contacto() {
         <div className="p-10">
           <h1 className="text-2xl pb-5 sm:text-4xl">Nosotros te contactamos</h1>
           <p className="sm:text-2xl">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue mi
-            ut volutpat pellentesque. Proin nisi nulla, semper id enim et,
-            sollicitudin convallis mi. Sed egestas blandit odio laoreet finibus. <br /><br />
+            En nuestra empresa, valoramos la comunicación con nuestros clientes. Si tienes dudas, comentarios o deseas recibir información detallada sobre nuestros servicios, no dudes en contactarnos. <br />
+            Nuestro equipo estará encantado de resolver cualquier inquietud y proporcionarte la atención personalizada que mereces. Completa el siguiente formulario con tus datos, y uno de nuestros asesores se pondrá en contacto contigo a la brevedad. <br /><br />
           </p>
 
           <div className="flex flex-col">
@@ -107,33 +118,39 @@ export default function Contacto() {
               className="h-32 p-2 text-start rounded-lg bg-white border-2 border-grey resize-none"
             />
 
-            <button onClick={handleSubmit} className="mt-4 p-2 bg-grey hover:bg-darkGrey/50 active:bg-darkGrey/30 rounded-lg">
-              Enviar
+            <button
+              onClick={handleSubmit}
+              disabled={isLoading}
+              className={`mt-4 p-2 rounded-lg ${
+                isLoading ? 'bg-grey/50 cursor-not-allowed' : 'bg-grey hover:bg-darkGrey/50 active:bg-darkGrey/30'
+              }`}
+            >
+              {isLoading ? 'Enviando...' : 'Enviar'}
             </button>
           </div>
           
-        <div className="pt-10">
-          <h1 className="text-2xl sm:text-4xl">Tu Contactanos</h1>
-          <p>Da click para copiar al portapapel</p>
-          <div className="pt-5 pb-5">
-            <p className="font-medium">Telefono:</p>
-            <p className="hover:underline">52-346-113-2727</p>
-          </div>
-          <div className="pb-5">
-            <p className="font-medium">Correo de Ventas:</p>
-            <p className="hover:underline">ventas@jarutany.com</p>
-          </div>
+          <div className="pt-10">
+            <h1 className="text-2xl sm:text-4xl">Tu Contactanos</h1>
+            <p>Da click para copiar al portapapel</p>
+            <div className="pt-5 pb-5">
+              <p className="font-medium">Telefono:</p>
+              <p className="hover:underline">52-346-113-2727</p>
+            </div>
+            <div className="pb-5">
+              <p className="font-medium">Correo de Ventas:</p>
+              <p className="hover:underline">ventas@jarutany.com</p>
+            </div>
 
-          <div>
-            <p className="font-medium">Redes Sociales:</p>
             <div>
-              <a href="">Facebook</a>
-            </div>
-            <div>
-              <a href="https://www.instagram.com/jarutany/">Instagram</a>
+              <p className="font-medium">Redes Sociales:</p>
+              <div>
+                <a href="">Facebook</a>
+              </div>
+              <div>
+                <a href="https://www.instagram.com/jarutany/">Instagram</a>
+              </div>
             </div>
           </div>
-        </div>
         </div>
       </div>
     </>
